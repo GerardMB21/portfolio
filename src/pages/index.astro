@@ -4,32 +4,51 @@ import Badge from "../components/Badge.astro";
 import SocialPill from '../components/SocialPill.astro';
 import LinkedInIcon from "../icons/LinkedIn.astro";
 import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
 ---
 
-<Layout title="Gerard">
+<Layout title="Porfolio de Gerard - Desarrollador y Programador Web con +2 años de experiencia" description='Contrata a Gerard para crear tu aplicacion web o móvil. Desarrollador Web. Especializado en crear aplicaciones únicas.'>
 	<main>
 		<section class="w-full lg:w-[740px] mx-auto py-10">
-			<img class="rounded-full w-12 h-12 mb-4" src="https://avatars.githubusercontent.com/u/94806498?v=4" alt="gerard photo">
+			<img class="rounded-full size-12 mb-4" src="https://avatars.githubusercontent.com/u/94806498?v=4" alt="gerard photo">
 			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-				Hi, I`m Gerard
+				Hola, Soy Gerard
 				<a href="https://www.linkedin.com/in/gerard-matos-bastidas-81b7a11a2/" target="_blank" class="flex justify-center items-center">
 					<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
 			<h2 class="text-2xl opacity-80 text-wrap">
-				<span>+2 años de experiencia. </span>
+				<span>
+					<script is:inline>
+						const selfScript = document.currentScript;
+						const initDate = Date.UTC(2021,4,1);
+						const actualDate = new Date().getTime();
+						const difference = actualDate - initDate;
+						const seconds = Math.floor(difference / 1000);
+						const minutes = Math.floor(seconds / 60);
+						const hours = Math.floor(minutes / 60);
+						const days = Math.floor(hours / 24);
+						const years = Math.floor(days / 365);
+
+						selfScript.parentNode.innerHTML = `+${years} años de experiencia.`;
+					</script>
+				</span>
 				<span class="text-yellow-200/90">Desarrollador web Full Stack. </span>
 				<span class="text-red-200/90">De Lima Perú. </span>
 				<span class="opacity-85">Especializado en crear aplicaciones únicas. </span>
 			</h2>
-			<nav class="flex gap-x-2 mt-8">
+			<nav class="flex gap-x-4 mt-8">
 				<SocialPill href="https://www.linkedin.com/in/gerard-matos-bastidas-81b7a11a2/">
-					<LinkedInIcon class="w-6 h-6" />
+					<LinkedInIcon class="size-6" />
 					Linkedin
 				</SocialPill>
 				<SocialPill href="https://github.com/GerardMB21">
-					<GitHubIcon class="w-6 h-6" />
-					Linkedin
+					<GitHubIcon class="size-6" />
+					GitHub
+				</SocialPill>
+				<SocialPill href="mailto:gerardmatos1990@gmail.com">
+					<MailIcon class="size-6" />
+					gerardmatos1990@gmail.com
 				</SocialPill>
 			</nav>
 		</section>
