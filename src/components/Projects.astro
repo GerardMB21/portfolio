@@ -1,6 +1,8 @@
 ---
 import NextIcon from "../icons/Nextjs.astro";
 import TailwindIcon from "../icons/Tailwind.astro";
+import AstroIcon from "../icons/Astro.astro";
+import GithubIcon from "../icons/GitHub.astro";
 
 const TAGS = {
   NEXT: {
@@ -12,24 +14,40 @@ const TAGS = {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
     icon: (TailwindIcon)
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#23262f] text-white",
+    icon: (AstroIcon)
   }
 };
 
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with a SVG logos",
-    description: "Create from scratch with Next.js and Tailwind CSS. It's a library with SVG logos from the most popular brands. Optimized from SEO and performance.",
-    link: "https://svgl.vercel.app",
-    github: "https://github.com/pheralb/svgl",
-    image: "https://firebasestorage.googleapis.com/v0/b/gerard-matos.appspot.com/o/project-default-1000x563.webp?alt=media&token=8dc0be60-d536-4fcf-9639-45ccf035c11a",
-    tags: [TAGS.NEXT, TAGS.TAILWIND]
+    title: "Phillipe Matos comunicador Audiovisual",
+    description: "Porfolio del creador audiovisual Phillipe Matos, creado con las tecnologias web Astro y Tailwind para poder conseguir las mejores metricas y posicionamiento de web a nivel de buscadores globales.",
+    link: "https://porfolio-phillipe.netlify.app/",
+    github: {
+      name: "Porfolio-Phillipe",
+      link: "https://github.com/GerardMB21/porfolio-phillipe"
+    },
+    image: "https://firebasestorage.googleapis.com/v0/b/gerard-matos.appspot.com/o/profolio-phillipe-1000x563.webp?alt=media&token=f04ff17d-05fa-4f8e-bd72-c65c42b5fa77",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND]
+  },
+  {
+    title: "Distribuidor Oficial de WIN",
+    description: "Web comercial creada para una empresa distribuidora de internet WIN en el peru, el proyecto se realizo con Astro para poder tener mejoras metricas en performance y SEO siendo una reversion de su pagina anterior para poder mejorar estas metricas y experiencia de usuario.",
+    link: "https://internetfibraperu.pe/",
+    github: undefined,
+    image: "https://firebasestorage.googleapis.com/v0/b/gerard-matos.appspot.com/o/win-page-1000x563.webp?alt=media&token=822e0965-9557-4f2f-b709-172388785f62",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND]
   }
 ]
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
+    <article class="mb-20">
       <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex flex-row gap-x-2 mb-2">
@@ -40,7 +58,16 @@ const PROJECTS = [
           </span>
         </li>))}
       </ul>
-      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+      {github &&
+      (<a href={github.link} target="_blank" class="flex flex-row gap-x-2 mb-2">
+        <span class={`flex gap-x-2 rounded-full text-xs font-semibold bg-[#222] text-white py-1 px-2`}>
+          <GithubIcon class="size-4" />
+          #{github.name}
+        </span>
+      </a>)}
+      <a href={link} target="_blank">
+        <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+      </a>
     </article>
   ))
 }
